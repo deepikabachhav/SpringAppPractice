@@ -1,0 +1,13 @@
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.capgemini.app.service.CustomerService;
+import com.capgemini.app.service.CustomerServiceImpl;
+
+@Configuration
+public class AppConfig {
+		@Bean
+		public CustomerService getCustomerService() {
+			return new CustomerServiceImpl();
+		}
+}

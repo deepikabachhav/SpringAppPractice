@@ -1,0 +1,5 @@
+package com.capgemini.app.repository;
+
+public class HibbernateCustomerRepositoryImpl {
+
+}

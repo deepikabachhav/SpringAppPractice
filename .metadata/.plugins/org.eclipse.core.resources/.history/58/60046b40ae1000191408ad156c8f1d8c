@@ -1,0 +1,25 @@
+package com.capgemini.app.service;
+
+import java.util.List;
+
+import com.capgemini.app.model.Customer;
+import com.capgemini.app.repository.CustomerRepository;
+
+public class CustomerServiceImpl implements CustomerService {
+	
+	private CustomerRepository customerRepository;
+	private CustomerRepository customerRepository2; 
+	
+	/* (non-Javadoc)
+	 * @see com.capgemini.app.service.CustomerService#findAll()
+	 */
+	@Override
+	public List<Customer> findAll(){
+		return customerRepository.findAll();
+	}
+
+	public void setCustomerRepository(CustomerRepository customerRepository2) {
+		this.customerRepository2=customerRepository2;
+		
+	}
+}

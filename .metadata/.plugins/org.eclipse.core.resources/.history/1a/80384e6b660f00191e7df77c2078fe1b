@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<!-- The below tag is for Annotation - Comment Bean tags to use Annotation -->
+	<!-- <context:component-scan base-package="com.capgemini.app"/> -->
+	
+	<bean id="organization" class="com.capgemini.app.bean.Organization" >
+	
+		<property name="boardMembers">
+			<util:list>
+				<value>Chief Executive Officer</value>
+				<value>President</value>
+				<value>Executive director</value>
+				<value>Vice president</value>
+				<value>Chairman</value>
+			</util:list>
+		</property>
+		
+		<property name="branchManagers">
+			<util:map>
+           		<entry key = "Capgemini mumbai" value = "Mr.XYZ"/>
+            	<entry key = "Capgemini Pune" value = "Mrs.ABC"/>
+            	<entry key = "Capgemini Chennai" value = "Mr.ABC"/>
+            	<entry key = "Capgemini Banglore" value = "Mrs. ABC"/>
+         	</util:map>
+         </property>
+         
+		<property name="cities">
+		 <util:set>
+            <value>Mumbai</value>
+            <value>Pune</value>
+            <value>Chennai</value>
+            <value>Banglore</value>
+            <value>Hydrabad</value>
+         </util:set>
+        </property>
+        
+        
+		 <property name="dateOfEstablishment" >
+		 
+		 <bean class="java.time.LocalDate" factory-method="of" >
+		 <constructor-arg value="(2017,01,01)"/>
+		 </bean>
+		 </property>
+		 
+		<!-- <property name="ipAddresses"></property> -->
+		
+		<property name="listed" value="False"></property> 
+		
+		<property name="name" value="Capgemini"></property> 
+		
+		<property name="orgId" value="1"></property>
+		
+		<property name="shareValue" value="58.96"></property>
+	</bean>
+	<!-- 
+	<bean id="organization2" class="com.capgemini.app.bean.Organization">
+		<constructor-arg value=""/>
+		<constructor-arg ref=""/>
+	</bean> -->
+	
+</beans>
+
+
+
+
+

@@ -1,0 +1,5 @@
+package com.capgemini.app.bean;
+
+public class Organization {
+
+}

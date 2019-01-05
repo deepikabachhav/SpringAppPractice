@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- The below tag is for Annotation - Comment Bean tags to use Annotation -->
+	<!-- <context:component-scan base-package="com.capgemini.app"/> -->
+
+	
+	<bean id="organization" class="com.capgemini.app.bean.Organization">
+		<property name="boardMembers" ref="s"></property>
+		<property name="branchManagers"></property>
+		<property name="cities"></property>
+		<property name="dateOfEstablishment"></property>
+		<property name="ipAddresses"></property>
+		<property name="listed"></property>
+		<property name="name"></property>
+		<property name="orgId"></property>
+		<property name="shareValue"></property>
+	</bean>
+	
+	<bean id="organization2" class="com.capgemini.app.bean.Organization">
+		<constructor-arg value=""/>
+		<constructor-arg ref=""/>
+	</bean>
+	
+</beans>
+
+
+
+
+

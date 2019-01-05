@@ -1,0 +1,14 @@
+package snippet;
+
+public class Snippet {
+	public static void main(String[] args) {
+		<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+					<version>4.3.18.RELEASE</version>
+				</dependency>
+		
+			</dependencies>
+	}
+}
+

@@ -1,0 +1,5 @@
+package com.capgemini.app.model;
+
+public class Customer {
+
+}

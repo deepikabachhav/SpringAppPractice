@@ -1,0 +1,14 @@
+package com.capgemini.app.service;
+
+import java.util.List;
+
+import com.capgemini.app.model.Customer;
+import com.capgemini.app.repository.CustomerRepository;
+import com.capgemini.app.repository.HibbernateCustomerRepositoryImpl;
+
+public class CustomerServiceImpl {
+	private CustomerRepository customerRepository = new HibbernateCustomerRepositoryImpl();
+	public List<Customer> findAll(){
+		return customerRepository.findAll();
+	}
+}
