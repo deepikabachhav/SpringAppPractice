@@ -8,34 +8,28 @@ import com.cg.app.pojo.exception.AccountNotFoundException;
 
 public interface SavingsAccountService {
 
-	SavingsAccount createNewAccount(String accountHolderName, double accountBalance, boolean salary)
-			throws ClassNotFoundException, SQLException;
+	SavingsAccount createNewAccount(String accountHolderName, double accountBalance, boolean salary);
+			
+	double checkCurrentBalance(int accountNumber) throws AccountNotFoundException;
 
-	double checkCurrentBalance(int accountNumber) throws ClassNotFoundException, AccountNotFoundException, SQLException;
+	SavingsAccount getAccountById(int accountNumber)throws AccountNotFoundException;
 
-	SavingsAccount getAccountById(int accountNumber)
-			throws ClassNotFoundException, SQLException, AccountNotFoundException;
+	SavingsAccount searchAccountByAccountHoldername(String accountHolderName)throws AccountNotFoundException;
 
-	SavingsAccount searchAccountByAccountHoldername(String accountHolderName)
-			throws ClassNotFoundException, AccountNotFoundException, SQLException;
+	SavingsAccount deleteAccount(int accountNumber)throws AccountNotFoundException;
 
-	SavingsAccount deleteAccount(int accountNumber)
-			throws ClassNotFoundException, AccountNotFoundException, SQLException;
+	List<SavingsAccount> getAllSavingsAccount();
 
-	List<SavingsAccount> getAllSavingsAccount() throws ClassNotFoundException, SQLException;
+	void fundTransfer(SavingsAccount sender, SavingsAccount receiver, double amount);
 
-	void fundTransfer(SavingsAccount sender, SavingsAccount receiver, double amount)
-			throws ClassNotFoundException, SQLException;
+	void deposit(SavingsAccount account, double amount);
 
-	void deposit(SavingsAccount account, double amount) throws ClassNotFoundException, SQLException;
+	void withdraw(SavingsAccount account, double amount);
 
-	void withdraw(SavingsAccount account, double amount) throws ClassNotFoundException, SQLException;
-
-	List<SavingsAccount> searchAccountByAccountBalance(double minimumBalance, double maximumBalance)
-			throws ClassNotFoundException, SQLException;
+	List<SavingsAccount> searchAccountByAccountBalance(double minimumBalance, double maximumBalance);
 
 	SavingsAccount updateAccount(SavingsAccount account)
-			throws ClassNotFoundException, SQLException, AccountNotFoundException;
+			throws AccountNotFoundException;
 
-	List<SavingsAccount> sort(int choice, int sortBy) throws ClassNotFoundException, SQLException;
+	List<SavingsAccount> sort(int choice, int sortBy);
 }

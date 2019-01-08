@@ -104,7 +104,7 @@ public class AccountCUI {
 			try {
 				SavingsAccount searchByAccountNumber = savingsAccountService.getAccountById(accountNumber);
 				System.out.println(searchByAccountNumber);
-			} catch (ClassNotFoundException | SQLException | AccountNotFoundException e) {
+			} catch ( AccountNotFoundException e) {
 				e.printStackTrace();
 			} catch (Exception e1) {
 				e1.printStackTrace();
@@ -117,7 +117,7 @@ public class AccountCUI {
 				SavingsAccount searchByAccountHolderName = savingsAccountService
 						.searchAccountByAccountHoldername(accountHolderName);
 				System.out.println(searchByAccountHolderName);
-			} catch (ClassNotFoundException | AccountNotFoundException | SQLException e) {
+			} catch (AccountNotFoundException e) {
 				e.printStackTrace();
 			} catch (Exception e1) {
 				e1.printStackTrace();
@@ -135,8 +135,6 @@ public class AccountCUI {
 				for (SavingsAccount savingsAccount : savingsAccounts) {
 					System.out.println(savingsAccount);
 				}
-			} catch (ClassNotFoundException | SQLException e) {
-				e.printStackTrace();
 			} catch (Exception e1) {
 				e1.printStackTrace();
 
@@ -154,7 +152,7 @@ public class AccountCUI {
 		SavingsAccount account = null;
 		try {
 			account = savingsAccountService.getAccountById(accountNumber);
-		} catch (ClassNotFoundException | SQLException | AccountNotFoundException e) {
+		} catch ( AccountNotFoundException e) {
 			e.printStackTrace();
 		}
 		System.out.println("Which Details you want to update: ");
@@ -172,7 +170,7 @@ public class AccountCUI {
 			try {
 				SavingsAccount updateAccountByName = savingsAccountService.updateAccount(account);
 				System.out.println(updateAccountByName);
-			} catch (ClassNotFoundException | SQLException | AccountNotFoundException e) {
+			} catch (AccountNotFoundException e) {
 				e.printStackTrace();
 			} catch (Exception e1) {
 				e1.printStackTrace();
@@ -185,7 +183,7 @@ public class AccountCUI {
 			try {
 				SavingsAccount updateAccountByisSalary = savingsAccountService.updateAccount(account);
 				System.out.println(updateAccountByisSalary);
-			} catch (ClassNotFoundException | SQLException | AccountNotFoundException e) {
+			} catch (AccountNotFoundException e) {
 				e.printStackTrace();
 			} catch (Exception e1) {
 				e1.printStackTrace();
@@ -202,7 +200,7 @@ public class AccountCUI {
 			try {
 				SavingsAccount updateAccountByBoth = savingsAccountService.updateAccount(account);
 				System.out.println(updateAccountByBoth);
-			} catch (ClassNotFoundException | SQLException | AccountNotFoundException e) {
+			} catch ( AccountNotFoundException e) {
 				e.printStackTrace();
 			} catch (Exception e1) {
 				e1.printStackTrace();
@@ -220,7 +218,7 @@ public class AccountCUI {
 		try {
 			double checkAccount = savingsAccountService.checkCurrentBalance(accountNumber);
 			System.out.println(" Your SavingsAccount current balance is :" + checkAccount);
-		} catch (ClassNotFoundException | AccountNotFoundException | SQLException e) {
+		} catch ( AccountNotFoundException e) {
 			e.printStackTrace();
 		} catch (Exception e1) {
 			e1.printStackTrace();
@@ -233,7 +231,7 @@ public class AccountCUI {
 		try {
 			SavingsAccount closeAccount = savingsAccountService.deleteAccount(accountNumber);
 			DBUtil.commit();
-		} catch (ClassNotFoundException | AccountNotFoundException | SQLException e) {
+		} catch ( AccountNotFoundException e) {
 			e.printStackTrace();
 		} catch (Exception e1) {
 			e1.printStackTrace();
@@ -251,8 +249,7 @@ public class AccountCUI {
 			SavingsAccount senderSavingsAccount = savingsAccountService.getAccountById(senderAccountNumber);
 			SavingsAccount receiverSavingsAccount = savingsAccountService.getAccountById(receiverAccountNumber);
 			savingsAccountService.fundTransfer(senderSavingsAccount, receiverSavingsAccount, amount);
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -328,36 +325,19 @@ public class AccountCUI {
 				switch (choice) {
 				case 1:
 
-					try {
 						List<SavingsAccount> sortByAccountNumber = savingsAccountService.sort(choice, sortBy);
 						System.out.println(sortByAccountNumber);
-					} catch (ClassNotFoundException | SQLException e) {
-						e.printStackTrace();
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
+				
 					break;
 				case 2:
 
-					try {
 						List<SavingsAccount> sortByAccountHolderName = savingsAccountService.sort(choice, sortBy);
 						System.out.println(sortByAccountHolderName);
-					} catch (ClassNotFoundException | SQLException e) {
-						e.printStackTrace();
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
 					break;
 				case 3:
 
-					try {
 						List<SavingsAccount> sortByAccountBalance = savingsAccountService.sort(choice, sortBy);
 						System.out.println(sortByAccountBalance);
-					} catch (ClassNotFoundException | SQLException e) {
-						e.printStackTrace();
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
 					break;
 				}
 			} else
@@ -367,15 +347,10 @@ public class AccountCUI {
 
 	private  void showAllAccounts() {
 		List<SavingsAccount> savingsAccounts;
-		try {
 			savingsAccounts = savingsAccountService.getAllSavingsAccount();
 			for (SavingsAccount savingsAccount : savingsAccounts) {
 				System.out.println(savingsAccount);
 			}
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
-
 	}
 
 	private  void acceptInput(String type) {
@@ -396,13 +371,7 @@ public class AccountCUI {
 	}
 
 	private  void createSavingsAccount(String accountHolderName, double accountBalance, boolean salary) {
-		try {
-			savingsAccountService.createNewAccount(accountHolderName, accountBalance, salary);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		savingsAccountService.createNewAccount(accountHolderName, accountBalance, salary);
 	}
 
 }

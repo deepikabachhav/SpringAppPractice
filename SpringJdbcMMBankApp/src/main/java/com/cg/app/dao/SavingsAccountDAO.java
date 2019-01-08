@@ -8,27 +8,23 @@ import com.cg.app.pojo.exception.AccountNotFoundException;
 
 public interface SavingsAccountDAO {
 
-	SavingsAccount createNewAccount(SavingsAccount account) throws ClassNotFoundException, SQLException;
+	SavingsAccount createNewAccount(SavingsAccount account);
 
-	double checkCurrentBalance(int accountNumber) throws AccountNotFoundException, ClassNotFoundException, SQLException;
+	double checkCurrentBalance(int accountNumber) throws AccountNotFoundException;
 
-	SavingsAccount getAccountById(int accountNumber)
-			throws ClassNotFoundException, SQLException, AccountNotFoundException;
+	SavingsAccount getAccountById(int accountNumber)throws AccountNotFoundException;
 
-	SavingsAccount deleteAccount(int accountNumber) throws ClassNotFoundException, SQLException;
+	SavingsAccount deleteAccount(int accountNumber);
 
-	List<SavingsAccount> getAllSavingsAccount() throws ClassNotFoundException, SQLException;
+	List<SavingsAccount> getAllSavingsAccount() ;
 
-	void updateBalance(int accountNumber, double currentBalance) throws ClassNotFoundException, SQLException;
+	void updateBalance(int accountNumber, double currentBalance);
 
-	SavingsAccount searchAccountByAccountHoldername(String accountHolderName)
-			throws AccountNotFoundException, ClassNotFoundException, SQLException;
+	SavingsAccount searchAccountByAccountHoldername(String accountHolderName)throws AccountNotFoundException;
 
-	List<SavingsAccount> searchAccountByAccountBalance(double minimumBalance, double maximumBalance)
-			throws ClassNotFoundException, SQLException;
+	List<SavingsAccount> searchAccountByAccountBalance(double minimumBalance, double maximumBalance);
 
-	SavingsAccount updateAccount(SavingsAccount account)
-			throws ClassNotFoundException, SQLException, AccountNotFoundException;
+	SavingsAccount updateAccount(SavingsAccount account)throws AccountNotFoundException;
 
-	List<SavingsAccount> sort(int choice, int sortBy) throws ClassNotFoundException, SQLException;
+	List<SavingsAccount> sort(int choice, int sortBy);
 }
